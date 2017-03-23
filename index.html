@@ -222,7 +222,9 @@
             this.current = direction;
 
         },
-
+        score += 5;
+        scoreText.text = 'Score: ' + score;
+        
         eatDot: function (pacman, dot) {
 
             dot.kill();
