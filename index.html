@@ -14,12 +14,11 @@
 </head>
 <body>
 
-     <audio autoplay loop>
-        <source src="assets/Sonic the Hedgehog-Green Hill Zone Theme (mp3cut.net).mp3" type="audio/mp3">
-</audio>
-    
     
     <script type="text/javascript">
+    
+    var score = 0;
+    var scoreText;
 
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
 
@@ -106,9 +105,10 @@
 
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
-
+           
+            scoreText = game.add.text(5, 0,'Score: 0', {font: '15px Verdana',  fill: '#FFFF00'});
         },
-
+        
         checkKeys: function () {
 
             if (this.cursors.left.isDown && this.current !== Phaser.LEFT)
