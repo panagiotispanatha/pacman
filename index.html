@@ -107,6 +107,17 @@
             this.move(Phaser.LEFT);
            
             scoreText = game.add.text(200, 0,'Score: 0', {font: '15px Verdana',  fill: '#FFFF00'});
+            
+            lives = game.add.group();
+           game.add.text(game.world.width - 200, 500, 'Lives : ', { fontSize: '34px Arial', fill: 'white' });
+             
+             for (var i = 0; i < 3; i++) 
+		    {
+ 			var pacman = lives.create(game.world.width - 85 + (30 * i), 517, 'pacman');
+ 			pacman.anchor.setTo(0.5, 0.5);
+ 			pacman.angle = 90;
+ 			pacman.alpha = 0.4;
+ 		    }	
         },
         
         checkKeys: function () {
