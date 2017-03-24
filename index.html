@@ -64,9 +64,7 @@
             //  Remove the next 2 lines if running locally
             this.load.baseURL = 'https://panagiotispanatha.github.io/pacman/';
             this.load.crossOrigin = 'anonymous';
-            this.load.image('str', 'assets/str.png');
-            this.load.image('dot', 'assets/dot.jpg');
-            this.load.image('coin', 'assets/coin.jpg');
+            this.load.image('dot', 'assets/dot.jpg');  
             this.load.image('tiles', 'assets/pacman-tiles.png');
             this.load.spritesheet('pacman', 'assets/pacman.png');
             this.load.tilemap('map', 'assets/pacman-map.json', null, Phaser.Tilemap.TILED_JSON);
@@ -203,23 +201,7 @@
             {
                 this.pacman.body.velocity.y = speed;
             }
-            //  Reset the scale and angle (Pacman is facing to the right in the sprite sheet)
-           /* this.pacman.scale.x = 1;
-            this.pacman.angle = 0;
-            if (direction === Phaser.LEFT)
-            {
-                this.pacman.scale.x = -1;
-            }
-            else if (direction === Phaser.UP)
-            {
-                this.pacman.angle = 270;
-            }
-            else if (direction === Phaser.DOWN)
-            {
-                this.pacman.angle = 90;
-            }
-            this.current = direction;
-        },*/
+         
             this.add.tween(this.pacman).to( { angle: this.getAngle(direction) }, this.turnSpeed, "Linear", true);
             this.current = direction;
         },
@@ -245,8 +227,6 @@
         
         eatDot: function (pacman, dot) {
             dot.kill();            
-            var audio = new Audio('assets/pacman_chomp.wav');
-            audio.play()
             this.score+=10;
             this.scoreText.text= 'Score: ' + this.score;
             //setTimeout(audio.play(),2000);
@@ -257,40 +237,8 @@
             }
         },
         
-        /*function muteAudio() {
-            var audio = document.getElementById('audioPlayer');
-            if (audio.mute = false) {
-                document.getElementById('audioPlayer').muted = true;
-        }
-        else {
-                audio.mute = true 
-                document.getElementById('audioPlayer').muted = false;
-            }
-        }*/
         
-        eatCoin: function(pacman,coin){//pente
-            coin.kill();
-	    this.score+=20;
-            this.scoreText.text= 'Score: ' + this.score;
-	    var audio = new Audio('assets/pacman_eatfruit.wav');
-            audio.play()
-            if(this.coins.total===0)
-            {
-                this.coins.callAll('revive');
-            }
-        },
-	    
-	eatStr: function(pacman,str){//pente
-            str.kill();
-	    this.bonus+=100;
-            this.bonusText.text= 'Bonus: ' + this.bonus;
-	    var audio = new Audio('assets/pacman_eatfruit.wav');
-            audio.play()
-            if(this.strs.total===0)
-            {
-                this.strs.callAll('revive');
-            }
-        },
+    
         
         update: function () {
           
