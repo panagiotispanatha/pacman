@@ -14,15 +14,8 @@
 </head>
 <body>
         
-    <audio autoplay loop>
-        <source src="assets/pacman_ringtone.mp3" type="audio/mp3">
-    </audio>
-        
-    <IMG STYLE="position:absolute; TOP:35px; LEFT:10px; WIDTH:500px; HEIGHT:180px" SRC="assets/Pac-man-50b7b12e49245.png">
-    <IMG STYLE="position:absolute; TOP:200px; LEFT:90px; WIDTH:80px; HEIGHT:80px" SRC="assets/2af2c4f1310cde76dc1008d8fa60350e.jpg">
+  
     
-    
-        
 
     <script type="text/javascript">
     var game = new Phaser.Game(500, 550, Phaser.AUTO);
@@ -69,7 +62,7 @@
         preload: function () {
             //  We need this because the assets are on github pages
             //  Remove the next 2 lines if running locally
-            this.load.baseURL = 'https://nikosdaskalos.github.io/pacman/';
+            this.load.baseURL = 'https://panagiotispanatha.github.io/pacman/';
             this.load.crossOrigin = 'anonymous';
             this.load.image('str', 'assets/str.png');
             this.load.image('dot', 'assets/dot.jpg');
