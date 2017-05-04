@@ -83,7 +83,7 @@
 		
 		
             this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots);
-           
+            this.map.createFromTiles(7, this.safetile, 'dot', this.layer, this.dots2);
 	
 	    //  The dots will need to be offset by 6px to put them back in the middle of the grid
             
@@ -264,8 +264,8 @@
             this.physics.arcade.collide(this.pacman, this.layer);
             
             this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot, null, this);
-            this.physics.arcade.overlap(this.pacman, this.dots, this.eatCoin, null, this);
-            this.physics.arcade.overlap(this.pacman, this.dots, this.eatStr, null, this);
+            this.physics.arcade.overlap(this.pacman, this.dots, this.eatDot2, null, this);
+           
             this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
             
