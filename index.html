@@ -131,9 +131,9 @@
 	    var sprite2 = game.add.sprite(300, 192, 'dot2');
 		
 			    
-	    game.add.tween(sprite).to( { alpha: 0 }, 50000, Phaser.Easing.Linear.None, true);
-	    game.add.tween(sprite1).to( { alpha: 0 }, 50000, Phaser.Easing.Linear.None, true);
-            game.add.tween(sprite2).to( { alpha: 0 }, 50000, Phaser.Easing.Linear.None, true);
+	    game.add.tween(sprite).to( { alpha: 0 }, 30000, Phaser.Easing.Linear.None, true);
+	    game.add.tween(sprite1).to( { alpha: 0 }, 30000, Phaser.Easing.Linear.None, true);
+            game.add.tween(sprite2).to( { alpha: 0 }, 30000, Phaser.Easing.Linear.None, true);
         },
         
         checkKeys: function () {
@@ -238,7 +238,7 @@
             this.current = direction;
         },
 	    
-        /*    this.add.tween(this.pacman).to( { angle: this.getAngle(direction) }, this.turnSpeed, "Linear", true);
+            this.add.tween(this.pacman).to( { angle: this.getAngle(direction) }, this.turnSpeed, "Linear", true);
             this.current = direction;
         },
         
@@ -256,14 +256,16 @@
                 return "-90";
             }
             return "90";
-        }, */
+        }, 
        
                
               
         
         eatDot: function (pacman, dot) {
-            dot.kill();            
-            this.score+=10;
+            
+	    dot.kill();            
+            
+	    this.score+=10;
             this.scoreText.text= 'Score: ' + this.score;
             //setTimeout(audio.play(),2000);
             
@@ -274,8 +276,12 @@
         },
         
         eatDot2: function (pacman, dot2) {
+		
             dot2.kill();            
-            this.score+=25;
+            
+            this.scoreText.text= 'Score: ' + this.bonus;
+		
+	    this.score+=25;
             this.scoreText.text= 'Bonus: ' + this.bonus;
            
             
