@@ -42,8 +42,8 @@
         this.turning = Phaser.NONE;
       
         
-       		this.time = 0;
-		this.scoreTime = null;
+       		var text = "Time";
+		var timerEvents = 0 ;
     };
         
     Pacman.prototype = {
@@ -92,7 +92,7 @@
 	    this.dots2.setAll('x', 6, false, false, 1);
             this.dots2.setAll('y', 6, false, false, 1);
 	    
-	    this.scoreTime = game.add.text(250, 4, "Seconds: " + Math.floor(this.game.time.totalElapsedSeconds()), { fontSize: "16px", fill: "#49311c" });
+	   
             
             //  Pacman should collide with everything except the safe tile
             this.map.setCollisionByExclusion([this.safetile], true, this.layer);
@@ -245,7 +245,7 @@
             this.physics.arcade.overlap(this.pacman, this.dots2, this.eatDot2, null, this);
            
             
-	    this.scoreTime.text = "Seconds: " + Math.floor(this.game.time.totalElapsedSeconds());
+	    
 	   
 	   this.marker.x = this.math.snapToFloor(Math.floor(this.pacman.x), this.gridsize) / this.gridsize;
             this.marker.y = this.math.snapToFloor(Math.floor(this.pacman.y), this.gridsize) / this.gridsize;
@@ -259,6 +259,8 @@
             if (this.turning !== Phaser.NONE)
             {
                 this.turn();
+		    
+		     game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 125, 495);
             }
         }
     };
