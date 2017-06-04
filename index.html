@@ -109,8 +109,10 @@
             
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
-           
 		
+	
+           
+		game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 125, 495);
 
         },
         
@@ -262,7 +264,7 @@
 		    
 		     
             }
-		game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 125, 495);
+		
         }
     };
     game.state.add('Game', Pacman, true);
