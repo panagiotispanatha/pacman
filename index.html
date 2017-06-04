@@ -17,6 +17,11 @@
     <script type="text/javascript">
     var game = new Phaser.Game(448, 496, Phaser.AUTO);
     var Pacman = function (game) {
+        
+        
+        var text = "Time";
+        var timerEvents = 0 ;
+        
         this.map = null;
         this.layer = null;
         this.pacman = null;
@@ -183,6 +188,7 @@
             {
                 this.turn();
             }
+             game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 125, 495);
         }
     };
     game.state.add('Game', Pacman, true);
